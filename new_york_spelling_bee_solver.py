@@ -1,5 +1,6 @@
 from english_words import english_words_lower_alpha_set
 
+
 class Solution:
     def __init__(self):
         self.get_letters()
@@ -16,19 +17,21 @@ class Solution:
                 if c not in self.letters:
                     valid = False
                     break
-                
-            if valid: answer.add(word)
+
+            if valid:
+                answer.add(word)
 
         print("\nPotential answers:")
         for word in sorted(sorted(answer), key=len):
-            if len(word) >= 4: print(word)
+            if len(word) >= 4:
+                print(word)
 
     def get_letters(self):
-        self.letters = input("What are the letters today?\n")
-        self.letters = [c for c in self.letters]
-        self.special = input("What is the special letter?\n")
+        self.letters = input("What are the letters today?: ")
+        self.special = input("What is the special letter?: ")
 
         if self.special not in self.letters:
             self.letters.append(self.special)
+
 
 test = Solution()
