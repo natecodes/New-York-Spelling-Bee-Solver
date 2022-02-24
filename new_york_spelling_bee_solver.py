@@ -18,5 +18,3 @@ def solver(letters, special):
         if len(word) >= 4: print(word)
 
 solver(['n','l','b','u','e','i', 'f'], 'f')
-
-#test
