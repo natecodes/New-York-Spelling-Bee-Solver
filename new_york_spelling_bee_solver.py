@@ -14,7 +14,18 @@ def solver(letters, special):
             
         if valid: answer.add(word)
 
-    for word in sorted(answer, key=len):
+    print("\nPotential answers:")
+    for word in sorted(sorted(answer), key=len):
         if len(word) >= 4: print(word)
 
-solver(['n','l','b','u','e','i', 'f'], 'f')
+def get_letters():
+    letters = input("What are the letters today?\n")
+    letters = [c for c in letters]
+    special = input("What is the special letter?\n")
+
+    if special not in letters:
+        letters.append(special)
+
+    return letters, special
+
+solver(*get_letters())
