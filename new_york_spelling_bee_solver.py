@@ -1,31 +1,34 @@
 from english_words import english_words_lower_alpha_set
 
-def solver(letters, special):
-    answer = set()
-    for word in english_words_lower_alpha_set:
-        valid = False
-        if special in word:
-            valid = True
+class Solution:
+    def __init__(self):
+        self.get_letters()
+        self.solver()
 
-        for c in word:
-            if c not in letters:
-                valid = False
-                break
-            
-        if valid: answer.add(word)
+    def solver(self):
+        answer = set()
+        for word in english_words_lower_alpha_set:
+            valid = False
+            if self.special in word:
+                valid = True
 
-    print("\nPotential answers:")
-    for word in sorted(sorted(answer), key=len):
-        if len(word) >= 4: print(word)
+            for c in word:
+                if c not in self.letters:
+                    valid = False
+                    break
+                
+            if valid: answer.add(word)
 
-def get_letters():
-    letters = input("What are the letters today?\n")
-    letters = [c for c in letters]
-    special = input("What is the special letter?\n")
+        print("\nPotential answers:")
+        for word in sorted(sorted(answer), key=len):
+            if len(word) >= 4: print(word)
 
-    if special not in letters:
-        letters.append(special)
+    def get_letters(self):
+        self.letters = input("What are the letters today?\n")
+        self.letters = [c for c in self.letters]
+        self.special = input("What is the special letter?\n")
 
-    return letters, special
+        if self.special not in self.letters:
+            self.letters.append(self.special)
 
-solver(*get_letters())
+test = Solution()
